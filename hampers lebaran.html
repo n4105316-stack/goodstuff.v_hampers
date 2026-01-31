@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hampers Spesial Lebaran 2026 - Goodstuff.v</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .poster-container {
+            width: 100%;
+            max-width: 500px;
+            background: linear-gradient(135deg, #1b4d2a 0%, #0d3a1f 50%, #1b4d2a 100%);
+            border-radius: 20px;
+            padding: 30px 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative elements */
+        .leaf-top-left {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 150px;
+            height: 150px;
+            opacity: 0.15;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 Q70,30 60,70 Q50,85 30,70 Q20,30 50,10" fill="gold" stroke="gold" stroke-width="2"/></svg>') no-repeat;
+            background-size: contain;
+        }
+
+        .leaf-bottom-right {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 180px;
+            height: 180px;
+            opacity: 0.12;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 Q70,30 60,70 Q50,85 30,70 Q20,30 50,10" fill="gold" stroke="gold" stroke-width="2"/></svg>') no-repeat;
+            background-size: contain;
+            transform: rotate(180deg);
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 28px;
+            color: #d4af37;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Packages Section */
+        .packages {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 25px;
+        }
+
+        .package {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
+            padding: 16px;
+            margin-bottom: 15px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .package:nth-child(1) { animation-delay: 0.2s; }
+        .package:nth-child(2) { animation-delay: 0.3s; }
+        .package:nth-child(3) { animation-delay: 0.4s; }
+        .package:nth-child(4) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .package:hover {
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .package-name {
+            background: #d4af37;
+            color: #1b4d2a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        .package-price {
+            background: white;
+            color: #1b4d2a;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .package-price::before {
+            content: "💰";
+            font-size: 14px;
+        }
+
+        .package-items {
+            color: #e8f0e8;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .package-items li {
+            list-style: none;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .package-items li::before {
+            content: "✓";
+            color: #d4af37;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        /* CTA Button */
+        .cta-section {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #d4af37 0%, #f0d895 100%);
+            color: #1b4d2a;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #1b4d2a;
+            font-weight: 600;
+        }
+
+        .footer-item strong {
+            color: #d4af37;
+        }
+
+        .store-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #1b4d2a;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .poster-container {
+                padding: 20px 18px;
+                border-radius: 15px;
+            }
+
+            .title {
+                font-size: 36px;
+                letter-spacing: 1px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .package {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .package-items {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="leaf-top-left"></div>
+        <div class="leaf-bottom-right"></div>
+
+        <div class="header">
+            <div class="logo">✨ @Goodstuff.v</div>
+            <div class="title">HAMPERS SPESIAL</div>
+            <div class="subtitle">Lebaran 2026</div>
+        </div>
+
+        <div class="packages">
+            <div class="package">
+                <div class="package-header">
+                    <span class="package-name">Paket A</span>
+                    <span class="package-price">49.000</span>
+                </div>
+                <ul class="package-items">
+                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
+                    <li>Kurma</li>
+                    <li>Nextar Box</li>
+                    <li>Kartu Ucapan</li>
+                </ul>
+            </div>
+
+            <div class="package">
+                <div class="package-header">
+                    <span class="package-name">Paket B</span>
+                    <span class="package-price">59.000</span>
+                </div>
+                <ul class="package-items">
+                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
+                    <li>Kurma</li>
+                    <li>Mangkuk</li>
+                    <li>Tasbih Digital</li>
+                    <li>Kartu Ucapan</li>
+                </ul>
+            </div>
+
+            <div class="package">
+                <div class="package-header">
+                    <span class="package-name">Paket C</span>
+                    <span class="package-price">69.000</span>
+                </div>
+                <ul class="package-items">
+                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
+                    <li>Basreng Toples 250gr (Ori/Pedas)</li>
+                    <li>Tasbih Digital</li>
+                    <li>Kartu Ucapan</li>
+                </ul>
+            </div>
+
+            <div class="package">
+                <div class="package-header">
+                    <span class="package-name">Paket V</span>
+                    <span class="package-price">70.000</span>
+                </div>
+                <ul class="package-items">
+                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
+                    <li>Kurma</li>
+                    <li>Tasbih Digital</li>
+                    <li>Nextar Box</li>
+                    <li>Sajadah</li>
+                    <li>Kartu Ucapan</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <button class="cta-button">PESAN SEKARANG</button>
+        </div>
+
+        <div class="footer">
+            <div class="store-name">@GOODSTUFF.V</div>
+            <div class="footer-content">
+                <div class="footer-item">
+                    📱 <strong>085175086755</strong>
+                </div>
+                <div class="footer-item">
+                    💬 <strong>Chat WhatsApp atau DM Instagram</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

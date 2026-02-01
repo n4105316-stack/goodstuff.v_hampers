@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hampers Spesial Lebaran 2026 - Goodstuff.v</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&family=Cormorant+Garamond:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f5f5f5;
+            background: linear-gradient(135deg, #0f3d2a 0%, #1a6e4e 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,17 +24,155 @@
 
         .poster-container {
             width: 100%;
-            max-width: 500px;
+            max-width: 560px;
             background: linear-gradient(135deg, #1b4d2a 0%, #0d3a1f 50%, #1b4d2a 100%);
-            border-radius: 20px;
-            padding: 30px 25px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            position: relative;
+            border-radius: 30px;
             overflow: hidden;
-            animation: slideIn 0.8s ease-out;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            animation: slideIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
         }
 
         @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Decorative background */
+        .poster-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 22px 20px 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+n        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 12px;
+            animation: logoScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .logo-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            animation: logoBounce 1s ease-in-out infinite;
+        }
+
+        @keyframes logoScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes logoBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+            font-size: 28px;
+            color: #d4af37;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 44px;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #d4af37;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-style: italic;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Packages Section */
+        .packages-container {
+            padding: 22px 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 13px;
+            margin-bottom: 16px;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2.5px solid #d4af37;
+            border-radius: 14px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.6s ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .package-card:hover::before {
+            left: 100%;
+        }
+
+        .package-card:nth-child(1) { animation-delay: 0.15s; }
+        .package-card:nth-child(2) { animation-delay: 0.25s; }
+        .package-card:nth-child(3) { animation-delay: 0.35s; }
+        .package-card:nth-child(4) { animation-delay: 0.45s; }
+
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(20px);
@@ -45,102 +183,11 @@
             }
         }
 
-        /* Decorative elements */
-        .leaf-top-left {
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            width: 150px;
-            height: 150px;
-            opacity: 0.15;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 Q70,30 60,70 Q50,85 30,70 Q20,30 50,10" fill="gold" stroke="gold" stroke-width="2"/></svg>') no-repeat;
-            background-size: contain;
-        }
-
-        .leaf-bottom-right {
-            position: absolute;
-            bottom: -10px;
-            right: -10px;
-            width: 180px;
-            height: 180px;
-            opacity: 0.12;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 Q70,30 60,70 Q50,85 30,70 Q20,30 50,10" fill="gold" stroke="gold" stroke-width="2"/></svg>') no-repeat;
-            background-size: contain;
-            transform: rotate(180deg);
-        }
-
-        /* Header Section */
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .logo {
-            font-size: 28px;
-            color: #d4af37;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            font-weight: 900;
-            color: white;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .subtitle {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            color: #d4af37;
-            font-style: italic;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        /* Packages Section */
-        .packages {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 25px;
-        }
-
-        .package {
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid #d4af37;
-            border-radius: 15px;
-            padding: 16px;
-            margin-bottom: 15px;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.6s ease-out backwards;
-        }
-
-        .package:nth-child(1) { animation-delay: 0.2s; }
-        .package:nth-child(2) { animation-delay: 0.3s; }
-        .package:nth-child(3) { animation-delay: 0.4s; }
-        .package:nth-child(4) { animation-delay: 0.5s; }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .package:hover {
-            background: rgba(212, 175, 55, 0.15);
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        .package-card:hover {
+            background: rgba(212, 175, 55, 0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+            border-color: #f0d895;
         }
 
         .package-header {
@@ -148,44 +195,176 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
+            gap: 8px;
         }
 
         .package-name {
-            background: #d4af37;
+            background: linear-gradient(135deg, #d4af37 0%, #f0d895 100%);
             color: #1b4d2a;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 5px 11px;
+            border-radius: 7px;
             font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.5px;
+            font-size: 12px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            flex: 1;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.2);
         }
 
         .package-price {
             background: white;
             color: #1b4d2a;
-            padding: 6px 12px;
-            border-radius: 20px;
+            padding: 5px 10px;
+            border-radius: 7px;
             font-weight: 700;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
+            font-size: 13px;
+            white-space: nowrap;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
-        .package-price::before {
-            content: "💰";
+        .discount-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 193, 7, 0.2) 100%);
+            border: 3px solid #ff4444;
+            position: relative;
+            margin-top: 8px;
+        }
+        .discount-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 193, 7, 0.2) 100%);
+            border: 3px solid #ff4444;
+            position: relative;
+            margin-top: 8px;
+        }
+        .discount-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 193, 7, 0.2) 100%);
+            border: 3px solid #ff4444;
+            position: relative;
+            margin-top: 8px;
+        }
+        .discount-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 193, 7, 0.2) 100%);
+            border: 3px solid #ff4444;
+            position: relative;
+            margin-top: 8px;
+        }
+        .discount-card {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 193, 7, 0.2) 100%);
+            border: 3px solid #ff4444;
+            position: relative;
+            margin-top: 8px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff4444 0%, #ff6666 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
             font-size: 14px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            box-shadow: 0 6px 20px rgba(255, 68, 68, 0.6);
+            text-transform: uppercase;
+            z-index: 10;
+            animation: discountPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes discountPulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.1); }
+        }
+
+        .package-price-discount {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            color: #1b4d2a;
+            padding: 5px 10px;
+            border-radius: 7px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .price-new {
+            font-weight: 900;
+            font-size: 16px;
+            color: #ff4444;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .price-new {
+            font-weight: 900;
+            font-size: 16px;
+            color: #ff4444;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .price-new {
+            font-weight: 900;
+            font-size: 16px;
+            color: #ff4444;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .price-new {
+            font-weight: 900;
+            font-size: 16px;
+            color: #ff4444;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        }
+
+        .package-card-full {
+            background: rgba(255, 255, 255, 0.08);
+            border: 2.5px solid #d4af37;
+            border-radius: 14px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: fadeInUp 0.6s ease-out backwards 0.5s;
+            position: relative;
+            overflow: hidden;
+            grid-column: 1 / -1;
+        }
+
+        .package-card-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .package-card-full:hover::before {
+            left: 100%;
+        }
+
+        .package-card-full:hover {
+            background: rgba(212, 175, 55, 0.18);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+            border-color: #f0d895;
         }
 
         .package-items {
-            color: #e8f0e8;
-            font-size: 12px;
+            color: #e8f5e9;
+            font-size: 10px;
             line-height: 1.6;
         }
 
         .package-items li {
             list-style: none;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             display: flex;
             align-items: flex-start;
         }
@@ -194,52 +373,71 @@
             content: "✓";
             color: #d4af37;
             font-weight: bold;
-            margin-right: 8px;
-            font-size: 13px;
+            margin-right: 6px;
+            font-size: 11px;
             flex-shrink: 0;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
         }
 
-        /* CTA Button */
+        /* CTA Section */
         .cta-section {
+            padding: 0 18px 18px;
+            display: flex;
+            gap: 10px;
             position: relative;
             z-index: 2;
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
         }
 
         .cta-button {
+            flex: 1;
             background: linear-gradient(135deg, #d4af37 0%, #f0d895 100%);
             color: #1b4d2a;
-            padding: 14px 28px;
+            padding: 13px 18px;
             border: none;
-            border-radius: 25px;
+            border-radius: 12px;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 13px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-            letter-spacing: 0.5px;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(212, 175, 55, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
         }
 
         .cta-button:active {
-            transform: translateY(0);
+            transform: translateY(-1px);
         }
 
         /* Footer */
         .footer {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.93) 100%);
+            padding: 18px 20px;
+            text-align: center;
             position: relative;
             z-index: 2;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: center;
+            border-top: 2px solid rgba(212, 175, 55, 0.2);
         }
 
         .footer-content {
@@ -248,34 +446,57 @@
             gap: 8px;
         }
 
+        .store-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #1b4d2a;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
         .footer-item {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-size: 13px;
+            font-size: 12px;
             color: #1b4d2a;
             font-weight: 600;
         }
 
         .footer-item strong {
             color: #d4af37;
+            font-weight: 700;
         }
 
-        .store-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            color: #1b4d2a;
-            font-weight: 900;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+        /* Decorative Elements */
+        .stars {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0.4;
+            animation: twinkle 2.5s ease-in-out infinite;
+            z-index: 1;
         }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        .star-1 { top: 12px; left: 15px; animation-delay: 0s; }
+        .star-2 { top: 12px; right: 15px; animation-delay: 0.6s; }
+        .star-3 { bottom: 12px; left: 25px; animation-delay: 1.2s; }
+        .star-4 { bottom: 12px; right: 25px; animation-delay: 1.8s; }
 
         /* Responsive */
         @media (max-width: 480px) {
             .poster-container {
-                padding: 20px 18px;
-                border-radius: 15px;
+                border-radius: 20px;
+            }
+
+            .featured-image {
+                height: 240px;
             }
 
             .title {
@@ -284,122 +505,132 @@
             }
 
             .subtitle {
-                font-size: 16px;
+                font-size: 20px;
             }
 
-            .package {
-                padding: 12px;
-                margin-bottom: 12px;
+            .package-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 11px;
             }
 
             .package-items {
-                font-size: 11px;
+                font-size: 9px;
+            }
+
+            .cta-button {
+                font-size: 12px;
+                padding: 11px 16px;
             }
         }
     </style>
 </head>
 <body>
     <div class="poster-container">
-        <div class="leaf-top-left"></div>
-        <div class="leaf-bottom-right"></div>
-
         <div class="header">
-            <div class="logo">✨ @Goodstuff.v</div>
+            <div class="stars star-1">✨</div>
+            <div class="stars star-2">⭐</div>
             <div class="title">HAMPERS SPESIAL</div>
             <div class="subtitle">Lebaran 2026</div>
         </div>
 
-        <div class="packages">
-            <div class="package">
-                <div class="package-header">
-                    <span class="package-name">Paket A</span>
-                    <span class="package-price">49.000</span>
+        <!-- Grid Packages -->
+        <div class="packages-container">
+            <div class="package-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <span class="package-name">Paket A</span>
+                        <span class="package-price">49rb</span>
+                    </div>
+                    <ul class="package-items">
+                        <li>Roti Kacang 400gr (Ori/Pandan)</li>
+                        <li>Kurma</li>
+                        <li>Nextar Box</li>
+                        <li>Kartu Ucapan</li>
+                    </ul>
                 </div>
-                <ul class="package-items">
-                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
-                    <li>Kurma</li>
-                    <li>Snack</li>
-                    <li>Kartu Ucapan</li>
-                </ul>
-            </div>
 
-            <div class="package">
-                <div class="package-header">
-                    <span class="package-name">Paket B</span>
-                    <span class="package-price">59.000</span>
+                <div class="package-card">
+                    <div class="package-header">
+                        <span class="package-name">Paket B</span>
+                        <span class="package-price">59rb</span>
+                    </div>
+                    <ul class="package-items">
+                        <li>Roti Kacang 400gr (Ori/Pandan)</li>
+                        <li>Kurma</li>
+                        <li>Mangkuk</li>
+                        <li>Tasbih Digital</li>
+                        <li>Kartu Ucapan</li>
+                    </ul>
                 </div>
-                <ul class="package-items">
-                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
-                    <li>Kurma</li>
-                    <li>Mangkuk Keramik</li>
-                    <li>Tasbih Digital</li>
-                    <li>Kartu Ucapan</li>
-                </ul>
-            </div>
 
-            <div class="package">
-                <div class="package-header">
-                    <span class="package-name">Paket C</span>
-                    <span class="package-price">69.000</span>
+                <div class="package-card">
+                    <div class="package-header">
+                        <span class="package-name">Paket C</span>
+                        <span class="package-price">69rb</span>
+                    </div>
+                    <ul class="package-items">
+                        <li>Roti Kacang 400gr (Ori/Pandan)</li>
+                        <li>Basreng 250gr (Ori/Pedas)</li>
+                        <li>Tasbih Digital</li>
+                        <li>Kartu Ucapan</li>
+                    </ul>
                 </div>
-                <ul class="package-items">
-                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
-                    <li>Basreng Toples 250gr (Ori/Pedas)</li>
-                    <li>Tasbih Digital</li>
-                    <li>Kartu Ucapan</li>
-                </ul>
-            </div>
 
-            <div class="package">
-                <div class="package-header">
-                    <span class="package-name">Paket D</span>
-                    <span class="package-price">̶̶5̶5̶.̶0̶0̶0̶  45.000</span>
+                <div class="package-card discount-card">
+                    <div class="discount-badge">DISKON!</div>
+                    <div class="package-header">
+                        <span class="package-name">Paket D</span>
+                        <span class="package-price-discount">
+                            <span class="strikethrough">55rb</span>
+                            <span class="price-new">45rb</span>
+                        </span>
+                    </div>
+                    <ul class="package-items">
+                        <li>Roti Kacang 400gr (Ori/Pandan)</li>
+                        <li>Tumbler</li>
+                        <li>Tasbih Digital</li>
+                        <li>Kartu Ucapan</li>
+                    </ul>
                 </div>
-                <ul class="package-items">
-                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
-                    <li>Tumbler</li>
-                    <li>Tasbih Digital</li>
-                    <li>Kartu Ucapan</li>
-                </ul>
+
+                <div class="package-card-full">
+                    <div class="package-header">
+                        <span class="package-name">Paket E</span>
+                        <span class="package-price">70rb</span>
+                    </div>
+                    <ul class="package-items">
+                        <li>Roti Kacang 400gr (Ori/Pandan)</li>
+                        <li>Kurma</li>
+                        <li>Tasbih Digital</li>
+                        <li>Nextar Box</li>
+                        <li>Sajadah</li>
+                        <li>Kartu Ucapan</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-          <div class="package">
-                <div class="package-header">
-                    <span class="package-name">Paket E</span>
-                    <span class="package-price">̶̶70.000</span>
-                </div>
-                <ul class="package-items">
-                    <li>Roti Kacang Toples 400gr (Ori/Pandan)</li>
-                    <li>Kurma</li>
-                    <li>Tasbih Digital</li>
-                    <li>Snack</li>
-                    <li>Sajadah</li>
-                    <li>Kartu Ucapan</li>
-                </ul>
-            </div>
-        </div>
-    
+        <!-- CTA Section -->
         <div class="cta-section">
-            <button class="cta-button">PESAN SEKARANG</button>
+            <button class="cta-button">📱 WhatsApp</button>
+            <button class="cta-button">💬 DM IG</button>
         </div>
 
+        <!-- Footer -->
         <div class="footer">
             <div class="store-name">@GOODSTUFF.V</div>
             <div class="footer-content">
                 <div class="footer-item">
-                    📱 <strong>085175086755</strong>
+                    📞 <strong>085175086755</strong>
                 </div>
                 <div class="footer-item">
-                    💬 <strong>Chat WhatsApp atau DM Instagram</strong>
+                    ⏰ Pesan Sekarang - Stok Terbatas!
                 </div>
             </div>
         </div>
+
+        <div class="stars star-3">✨</div>
+        <div class="stars star-4">⭐</div>
     </div>
 </body>
-
 </html>
-
-
-
-
